@@ -1,28 +1,32 @@
 # goinit
 Dynamic workspaces for Go  
-  
+
 This repository contains a set of scripts which, when invoked, set the `GOPATH` and `PATH` environment variables to the current directory or the directory of the invoked script.  
-  
+
 ##Powershell
 If you use powershell as your console, you'll need first to enable scripts. Open powershell as administrator and:
 ```powershell
 Set-ExecutionPolicy RemoteSigned
 ```
-  
+
 There are two options:  
 ###1. Activation Script
-Copy the file `activate.ps1` to your Go workspace folder. Whenever you call `activate.ps1` (from any location) it'll set `GOPATH` to the script's directory and add the `bin` subdirectory to the system `PATH`. The changes will only apply for the current console session.  
+Copy the files `goinit.ps1` and `godie.ps1` to your Go workspace folder. Whenever you call `goinit.ps1` (from any location) it'll set `GOPATH` to the script's directory and add the `bin` subdirectory to the system `PATH`.  `godie.ps1` (from any location) will reset changes. The changes will only apply for the current console session.  
 ```
 SomeFolder\
 WorkspaceFolder\
   |
-  |---activate.ps1
+  |---goinit.ps1
+  |---godie.ps1
   |---bin\
   |---src\
 ```
-  
+
 ###2. Profile Function
-Run `install.ps1`. It will add a function `goinit` to the powershell `$profile` file. So whenever you enter `goinit` in a powershell session, the current working directory will become the Go workspace.  
-  
+Run `install.ps1`. It will add functions `goinit` and `godie` to the powershell `$profile` file. So whenever you enter `goinit` in a powershell session, the current working directory will become the Go workspace. `godie` will reverse changes.  
+
+Note: You need to reload your powershell profile/console after running install for the functions to 
+become available.
+
 ##Cmd
-Copy `activate.bat` to each Go workspace. Running the batch script will set the `GOPATH` and `PATH` variables to the directory of the script. Changes only apply for the current console session.
+Copy `goinit.bat` and `godie.bat` to each Go workspace. Running `goinit` will set the `GOPATH` and `PATH` variables to the directory of the script. Running `godie` will restore changes. Changes only apply for the current console session.

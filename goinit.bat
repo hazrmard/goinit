@@ -1,0 +1,4 @@
+@echo off
+SET GOPATH=%~dp0
+SET GOINITORIGINAL=%PATH%
+SET PATH=%PATH%;%~dp0bin;%~dp0
