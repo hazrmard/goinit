@@ -25,8 +25,16 @@ WorkspaceFolder\
 ###2. Profile Function
 Run `install.ps1`. It will add functions `goinit` and `godie` to the powershell `$profile` file. So whenever you enter `goinit` in a powershell session, the current working directory will become the Go workspace. `godie` will reverse changes.  
 
-Note: You need to reload your powershell profile/console after running install for the functions to 
+Note: You need to reload your powershell profile/console after running install for the functions to
 become available.
 
 ##Cmd
 Copy `goinit.bat` and `godie.bat` to each Go workspace. Running `goinit` will set the `GOPATH` and `PATH` variables to the directory of the script. Running `godie` will restore changes. Changes only apply for the current console session.
+
+##Bash
+Append the contents of `goinit.sh` to your `~/.bashrc` file and reload your profile:  
+```bash
+$ cat goinit.sh >> ~/.bashrc
+$ source ~/.bashrc
+```
+Then typing `goinit` and `godie` should set and unset the relevant environment variables and make current directory a Go workspace. Changes do not persist across sessions.
