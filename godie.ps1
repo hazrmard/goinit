@@ -1,3 +1,6 @@
-$env:PATH = $env:PATH -Replace [Regex]::Escape($env:GOPATH+"\bin"),$NULL
-$env:PATH = $env:PATH -Replace [Regex]::Escape($env:GOPATH),$NULL
-Remove-Item env:GOPATH
+$env:PATH = $env:_EXISTINGPATH
+$env:GOPATH = $env:_OLDGOPATH
+$env:_OLDGOPATH="something"
+$env:_EXISTINGPATH="something"
+Remove-Item env:_EXISTINGPATH
+Remove-Item env:_OLDGOPATH
