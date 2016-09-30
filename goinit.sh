@@ -2,7 +2,11 @@ function goinit {
 	p=$(pwd)
 	export _OLDGOPATH=$GOPATH
 	export _EXISTINGPATH=$PATH
-	export GOPATH=$p:$GOPATH
+	export GOPATH=$p
+	if [[ -n "$_OLDGOPATH"]]
+	then
+		export GOPATH=$GOPATH:$_OLDGOPATH
+	fi
 	export PATH=$PATH:$p/bin
 }
 
