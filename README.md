@@ -2,7 +2,7 @@
 Dynamic workspaces for Go  
 
 This repository contains a set of scripts which, when invoked, append the current directory or the
-directory of the invoked script to the beginning of `GOPATH` and `PATH` environment variables.  
+directory of the invoked script to the beginning of `GOPATH` and end of `PATH` environment variables.  
 
 ##Powershell
 If you use powershell as your console, you'll need first to enable scripts. Open powershell as administrator and:
